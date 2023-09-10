@@ -56,7 +56,7 @@ fun CloneToolBar() {
                     .size(32.dp)
                     .padding(start = spacingMedium)
                     .align(Alignment.CenterVertically),
-                contentDescription = stringResource(R.string.content_description_messagem_icon)
+                contentDescription = stringResource(R.string.content_description_message_icon)
             )
         }
     }

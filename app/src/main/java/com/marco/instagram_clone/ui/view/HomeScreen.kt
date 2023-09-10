@@ -18,7 +18,12 @@ fun HomeScreen() {
     ) {
         CloneToolBar()
 
-        StoryItem(story = Story("Jane Doo", "https://i.redd.it/rmk3k21tcxu21.jpg"))
+        StoryItem(
+            story = Story(
+                "rickgrimes",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFapjLsFHrJlGpNMqbJ_hsYPj6mhOnTWGNqQ&usqp=CAU"
+            )
+        )
     }
 }
 
