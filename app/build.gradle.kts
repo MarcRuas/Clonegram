@@ -5,12 +5,13 @@ plugins {
 
 android {
     namespace = "com.marco.instagram_clone"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.marco.instagram_clone"
         minSdk = 24
-        targetSdk = 33
+        //noinspection EditedTargetSdkVersion
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -66,4 +67,7 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    //Glide
+    implementation("com.github.bumptech.glide:compose:1.0.0-alpha.5")
 }

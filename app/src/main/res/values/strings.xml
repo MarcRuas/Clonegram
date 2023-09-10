@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Instagram - Clone</string>
+    <string name="app_name">Clonegram</string>
+    <string name="titulo">Clonegram</string>
+    <string name="content_description_notification_icon">Ícone de notificacãona barra de ferramenta.</string>
+    <string name="content_description_messagem_icon">Íconde de messagens (DM) na barra de ferramentas.</string>
 </resources>

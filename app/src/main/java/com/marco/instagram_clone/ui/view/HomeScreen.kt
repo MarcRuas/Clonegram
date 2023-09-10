@@ -7,6 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.marco.instagram_clone.data.Story
 
 @Composable
 fun HomeScreen() {
@@ -16,6 +17,8 @@ fun HomeScreen() {
             .background(MaterialTheme.colorScheme.background)
     ) {
         CloneToolBar()
+
+        StoryItem(story = Story("Jane Doo", "https://i.redd.it/rmk3k21tcxu21.jpg"))
     }
 }
 
