@@ -1,6 +1,6 @@
 package com.marco.instagram_clone.data
 
-class Story(
+data class Story(
     val userNickName: String,
     val userAvatar: String
 )

@@ -33,7 +33,8 @@ fun CloneToolBar() {
             modifier = Modifier
                 .padding(horizontal = spacingLarge)
                 .height(56.dp)
-                .fillMaxWidth()
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = instagramLabel,
@@ -45,8 +46,7 @@ fun CloneToolBar() {
                 painter = painterResource(id = R.drawable.ic_notification),
                 modifier = Modifier
                     .size(32.dp)
-                    .padding(end = spacingMedium)
-                    .align(Alignment.CenterVertically),
+                    .padding(end = spacingMedium),
                 contentDescription = stringResource(R.string.content_description_notification_icon)
             )
 
@@ -54,8 +54,7 @@ fun CloneToolBar() {
                 painter = painterResource(id = R.drawable.messenger),
                 modifier = Modifier
                     .size(32.dp)
-                    .padding(start = spacingMedium)
-                    .align(Alignment.CenterVertically),
+                    .padding(start = spacingMedium),
                 contentDescription = stringResource(R.string.content_description_message_icon)
             )
         }
