@@ -10,7 +10,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.marco.instagram_clone.data.Story
+import com.marco.instagram_clone.data.model.Story
+import com.marco.instagram_clone.data.repository.list
+import com.marco.instagram_clone.ui.theme.InstagramCloneTheme
 import com.marco.instagram_clone.ui.theme.spacingMedium
 
 @Composable
@@ -22,38 +24,6 @@ fun HomeScreen() {
     ) {
         CloneToolBar()
 
-        val list: MutableList<Story> = mutableListOf(
-            Story(
-                userNickName = "Daryl",
-                userAvatar = "https://i.pinimg.com/236x/e7/16/84/e71684c11b2bf7ae5ddfa7c75c736d09.jpg"
-            ),
-
-            Story(
-                userNickName = "rickgrimes",
-                userAvatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFapjLsFHrJlGpNMqbJ_hsYPj6mhOnTWGNqQ&usqp=CAU"
-            ),
-
-            Story(
-                userNickName = "rickgrimes",
-                userAvatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFapjLsFHrJlGpNMqbJ_hsYPj6mhOnTWGNqQ&usqp=CAU"
-            ),
-
-            Story(
-                userNickName = "rickgrimes",
-                userAvatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFapjLsFHrJlGpNMqbJ_hsYPj6mhOnTWGNqQ&usqp=CAU"
-            ),
-
-            Story(
-                userNickName = "rickgrimes",
-                userAvatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFapjLsFHrJlGpNMqbJ_hsYPj6mhOnTWGNqQ&usqp=CAU"
-            ),
-
-            Story(
-                userNickName = "rickgrimes",
-                userAvatar = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFapjLsFHrJlGpNMqbJ_hsYPj6mhOnTWGNqQ&usqp=CAU"
-            )
-        )
-        
         StoryList(stories = list)
     }
 }
@@ -72,4 +42,13 @@ fun StoryList(stories:List<Story>) {
 @Composable
 fun HomeScreenPreview() {
     HomeScreen()
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DarkHomeScreenPreview() {
+    InstagramCloneTheme(darkTheme = true){
+        HomeScreen()
+    }
+
 }

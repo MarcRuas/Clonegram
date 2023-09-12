@@ -20,7 +20,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.marco.instagram_clone.R
-import com.marco.instagram_clone.data.Story
+import com.marco.instagram_clone.data.model.Story
 import com.marco.instagram_clone.ui.theme.StoryCircleColor
 import com.marco.instagram_clone.ui.theme.spacingSmall
 
