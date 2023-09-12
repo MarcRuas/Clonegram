@@ -1,6 +1,7 @@
 package com.marco.instagram_clone.ui.theme
 
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.ColorPainter
 
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
@@ -14,3 +15,4 @@ val Pink40 = Color(0xFF7D5260)
 val Black = Color(0xFF000000)
 val White = Color(0xFFFFFFFF)
 val StoryCircleColor = Color(0xFFFF6347)
+val screenSkeleton = ColorPainter(Color.Gray)

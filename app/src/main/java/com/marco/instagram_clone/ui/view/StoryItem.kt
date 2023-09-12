@@ -22,6 +22,7 @@ import coil.compose.AsyncImage
 import com.marco.instagram_clone.R
 import com.marco.instagram_clone.data.model.Story
 import com.marco.instagram_clone.ui.theme.StoryCircleColor
+import com.marco.instagram_clone.ui.theme.screenSkeleton
 import com.marco.instagram_clone.ui.theme.spacingSmall
 
 
@@ -30,7 +31,6 @@ fun StoryItem(story: Story) {
 
     val avatarContentDesc =
         stringResource(id = R.string.story_content_description, story.userNickName)
-
 
     Column(
         modifier = Modifier
@@ -47,7 +47,8 @@ fun StoryItem(story: Story) {
                 .fillMaxSize()
                 .clip(CircleShape)
                 .border(2.dp, StoryCircleColor, CircleShape),
-            contentScale = ContentScale.Crop
+            contentScale = ContentScale.Crop,
+            placeholder = screenSkeleton
         )
 
         Text(
