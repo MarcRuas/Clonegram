@@ -20,7 +20,8 @@ private val DarkColorScheme = darkColorScheme(
     secondary = PurpleGrey80,
     tertiary = Pink80,
     background = Black,
-    onBackground = White
+    onBackground = White,
+    onSurface = DarkDividerColor
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -28,7 +29,8 @@ private val LightColorScheme = lightColorScheme(
     secondary = PurpleGrey40,
     tertiary = Pink40,
     background = White,
-    onBackground = Black
+    onBackground = Black,
+    onSurface = DividerColor
 )
 
 @Composable

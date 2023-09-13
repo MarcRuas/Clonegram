@@ -6,10 +6,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.marco.instagram_clone.data.model.Story
 import com.marco.instagram_clone.data.repository.list
 import com.marco.instagram_clone.ui.theme.InstagramCloneTheme
@@ -25,19 +27,22 @@ fun HomeScreen() {
         CloneToolBar()
 
         StoryList(stories = list)
+
+        Divider(color = MaterialTheme.colorScheme.onSurface, thickness = 0.2.dp)
     }
 }
 
 @Composable
-fun StoryList(stories:List<Story>) {
+fun StoryList(stories: List<Story>) {
     LazyRow(
         modifier = Modifier.padding(top = spacingMedium)
-    ){
-        itemsIndexed(stories){_,item ->
+    ) {
+        itemsIndexed(stories) { _, item ->
             StoryItem(story = item)
         }
     }
 }
+
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
@@ -47,7 +52,7 @@ fun HomeScreenPreview() {
 @Preview(showBackground = true)
 @Composable
 fun DarkHomeScreenPreview() {
-    InstagramCloneTheme(darkTheme = true){
+    InstagramCloneTheme(darkTheme = true) {
         HomeScreen()
     }
 
