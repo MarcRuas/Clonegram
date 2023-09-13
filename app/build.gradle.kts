@@ -69,7 +69,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     //Glide
-    implementation("com.github.bumptech.glide:compose:1.0.0-alpha.5")
+    implementation("com.github.bumptech.glide:compose:1.0.0-alpha.6")
 
     //Coil
     implementation ("io.coil-kt:coil-compose:2.4.0")

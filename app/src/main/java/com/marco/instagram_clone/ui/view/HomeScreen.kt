@@ -25,6 +25,13 @@ fun HomeScreen() {
         CloneToolBar()
 
         StoryList(stories = list)
+
+        /**
+         * A barra foi adicionada ao layout nesse momento apenas para efeito de teste.
+         * Ela não foi alinhada na parte debaixo para que isso seja feito da melhor maneira após concluída e implmentada a lista do feed.
+         * É recomendável que ela seja removida da tela até lá.
+         */
+        BottomNavigationBar()
     }
 }
 
