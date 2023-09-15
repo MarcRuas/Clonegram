@@ -1,8 +1,9 @@
 package com.marco.instagram_clone.data.repository
 
+import com.marco.instagram_clone.data.model.Feed
 import com.marco.instagram_clone.data.model.Story
 
-val list: MutableList<Story> = mutableListOf(
+val storyList: MutableList<Story> = mutableListOf(
 
     Story(
         userNickName = "guts",
@@ -37,5 +38,52 @@ val list: MutableList<Story> = mutableListOf(
     Story(
         userNickName = "abraham",
         userAvatar = "https://static1.purebreak.com.br/articles/7/13/00/7/@/63232-abraham-michael-cudlitz-tem-a-cara-de-700x700-1.jpg"
+    )
+)
+
+val feedList: MutableList<Feed> = mutableListOf(
+    Feed(
+        userNickname = "Zombie",
+        localName = "Rosewood",
+        userAvatar = "https://projectzomboid.com/blog/content/uploads/2022/10/mapspiffoblog-centred-trans.png",
+        imageUrl ="https://images5.alphacoders.com/627/627910.jpg",
+        description = "Passando dificuldade :)",
+        postedAgo = "Há 1 dia"
+        ),
+
+    Feed(
+        userNickname = "The Walking Dead",
+        localName = "Georgia",
+        userAvatar = "https://ovicio.com.br/wp-content/uploads/2019/05/20190513-the-walking-dead-comics-rick-grimes-1170814.jpeg",
+        imageUrl ="https://img.r7.com/images/the-walking-dead-18072020173303685?dimensions=660x360&&&resize=660x360&crop=781x426+0+306",
+        description = "Passando dificuldade :)",
+        postedAgo = "Há 1 dia"
+    ),
+
+    Feed(
+        userNickname = "Zombie",
+        localName = "Rosewood",
+        userAvatar = "https://projectzomboid.com/blog/content/uploads/2022/10/mapspiffoblog-centred-trans.png",
+        imageUrl ="https://images5.alphacoders.com/627/627910.jpg",
+        description = "Passando dificuldade :)",
+        postedAgo = "Há 1 dia"
+    ),
+
+    Feed(
+        userNickname = "Zombie",
+        localName = "Rosewood",
+        userAvatar = "https://projectzomboid.com/blog/content/uploads/2022/10/mapspiffoblog-centred-trans.png",
+        imageUrl ="https://images5.alphacoders.com/627/627910.jpg",
+        description = "Passando dificuldade :)",
+        postedAgo = "Há 1 dia"
+    ),
+
+    Feed(
+        userNickname = "Zombie",
+        localName = "Rosewood",
+        userAvatar = "https://projectzomboid.com/blog/content/uploads/2022/10/mapspiffoblog-centred-trans.png",
+        imageUrl ="https://images5.alphacoders.com/627/627910.jpg",
+        description = "Passando dificuldade :)",
+        postedAgo = "Há 1 dia"
     )
 )

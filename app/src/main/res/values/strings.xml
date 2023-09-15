@@ -4,4 +4,6 @@
     <string name="content_description_notification_icon">Ícone de notificacãona barra de ferramenta.</string>
     <string name="content_description_message_icon">Íconde de messagens (DM) na barra de ferramentas.</string>
     <string name="story_content_description" formatted="true">Story do %s não visualizado.</string>
+    <string name="content_description_feed_avatar">Avatar com a imagem do autor da postagem.</string>
+    <string name="content_description_feed_image">Imagem exibindo a foto da postagem.</string>
 </resources>
