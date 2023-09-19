@@ -6,4 +6,8 @@
     <string name="story_content_description" formatted="true">Story do %s não visualizado.</string>
     <string name="content_description_feed_avatar">Avatar com a imagem do autor da postagem.</string>
     <string name="content_description_feed_image">Imagem exibindo a foto da postagem.</string>
+    <string name="button_like_description">Botão para curtir a postagem.</string>
+    <string name="button_message_description">Botão para enviar a postagem.</string>
+    <string name="button_content_description">Botão para comentar a postagem.</string>
+    <string name="button_bookmark_description">Botão para marcar na postagem.</string>
 </resources>

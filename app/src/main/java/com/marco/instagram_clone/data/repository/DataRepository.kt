@@ -61,10 +61,10 @@ val feedList: MutableList<Feed> = mutableListOf(
     ),
 
     Feed(
-        userNickname = "Zombie",
-        localName = "Rosewood",
-        userAvatar = "https://projectzomboid.com/blog/content/uploads/2022/10/mapspiffoblog-centred-trans.png",
-        imageUrl ="https://images5.alphacoders.com/627/627910.jpg",
+        userNickname = "Kotlin",
+        localName = "USA",
+        userAvatar = "https://miro.medium.com/v2/resize:fit:1400/1*MCU8J5-roudxIIYt1U1J1A.jpeg",
+        imageUrl ="https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/1272409/regular_1708x683_RENDER_1__2_-6e93fa7621abfe9e81524024b92dfe47.png",
         description = "Passando dificuldade :)",
         postedAgo = "Há 1 dia"
     ),
@@ -72,7 +72,7 @@ val feedList: MutableList<Feed> = mutableListOf(
     Feed(
         userNickname = "Zombie",
         localName = "Rosewood",
-        userAvatar = "https://projectzomboid.com/blog/content/uploads/2022/10/mapspiffoblog-centred-trans.png",
+        userAvatar = "https://photos.fife.usercontent.google.com/pw/AIL4fc-p2QKsXdL6c-pJnVk2Imu1Wi2kT_sLvaDruAev2QRWVVu9wLKKctosnw=w758-h845-s-no?authuser=0",
         imageUrl ="https://images5.alphacoders.com/627/627910.jpg",
         description = "Passando dificuldade :)",
         postedAgo = "Há 1 dia"

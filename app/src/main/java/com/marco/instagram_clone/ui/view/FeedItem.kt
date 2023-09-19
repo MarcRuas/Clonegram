@@ -1,5 +1,6 @@
 package com.marco.instagram_clone.ui.view
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,13 +9,16 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -30,8 +34,19 @@ import com.marco.instagram_clone.ui.theme.spacingSmall
 
 @Composable
 fun FeedItem(feed: Feed) {
+
+    val likeIcon = R.drawable.ic_notification
+    val messageIcon = R.drawable.ic_share
+    val commentIcon = R.drawable.ic_comment
+    val bookmarkIcon = R.drawable.ic_bookmark
+
     val userAvatarContent = stringResource(R.string.content_description_feed_avatar)
     val feedImageContentDesc = stringResource(R.string.content_description_feed_image)
+    val likeContestDesc = stringResource(R.string.button_like_description)
+    val messageContestDesc = stringResource(R.string.button_message_description)
+    val commentContestDesc = stringResource(R.string.button_content_description)
+    val bookmarkContestDesc = stringResource(R.string.button_bookmark_description)
+
 
     Column(
         modifier = Modifier.background(MaterialTheme.colorScheme.background)
@@ -87,5 +102,45 @@ fun FeedItem(feed: Feed) {
             contentScale = ContentScale.Crop,
             placeholder = screenSkeleton
         )
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(40.dp)
+                .padding(start = spacingMedium, top = spacingLarge)
+        ) {
+
+            Image(
+                painter = painterResource(id = likeIcon),
+                contentDescription = likeContestDesc,
+                modifier = Modifier
+                    .size(40.dp)
+                    .padding(end = spacingLarge)
+            )
+            Image(
+                painter = painterResource(id = messageIcon),
+                contentDescription = messageContestDesc,
+                modifier = Modifier
+                    .size(40.dp)
+                    .padding(end = spacingLarge)
+            )
+            Image(
+                painter = painterResource(id = commentIcon),
+                contentDescription = commentContestDesc,
+                modifier = Modifier
+                    .size(40.dp)
+                    .padding(end = spacingLarge)
+            )
+            Image(
+                painter = painterResource(id = bookmarkIcon),
+                contentDescription = bookmarkContestDesc,
+                modifier = Modifier
+                    .size(40.dp)
+                    .padding(end = spacingLarge)
+                    .weight(1f)
+                    .wrapContentWidth(align = Alignment.End)
+            )
+
+        }
     }
 }
