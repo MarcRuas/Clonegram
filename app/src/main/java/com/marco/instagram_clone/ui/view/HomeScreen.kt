@@ -17,6 +17,7 @@ import com.marco.instagram_clone.data.model.Feed
 import com.marco.instagram_clone.data.model.Story
 import com.marco.instagram_clone.data.repository.feedList
 import com.marco.instagram_clone.data.repository.storyList
+import com.marco.instagram_clone.ui.components.CloneToolBar
 import com.marco.instagram_clone.ui.theme.InstagramCloneTheme
 import com.marco.instagram_clone.ui.theme.spacingMedium
 import com.marco.instagram_clone.ui.theme.spacingSmall

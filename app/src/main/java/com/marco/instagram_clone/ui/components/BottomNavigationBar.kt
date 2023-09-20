@@ -1,4 +1,4 @@
-package com.marco.instagram_clone.ui.view
+package com.marco.instagram_clone.ui.components
 
 import android.widget.Toast
 import androidx.annotation.DrawableRes

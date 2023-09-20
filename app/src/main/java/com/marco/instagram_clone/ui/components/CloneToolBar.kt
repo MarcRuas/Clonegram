@@ -1,6 +1,6 @@
-package com.marco.instagram_clone.ui.view
+package com.marco.instagram_clone.ui.components
 
-import androidx.compose.foundation.Image
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -13,8 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -27,7 +26,13 @@ fun CloneToolBar() {
 
     val instagramLabel = stringResource(id = R.string.titulo)
 
-    val iconsColor = MaterialTheme.colorScheme.onBackground
+    val imgNotification = R.drawable.ic_notification
+    val imgDM = R.drawable.messenger
+    val imgNotificationDesc = stringResource(R.string.content_description_notification_icon)
+    val imgDMDesc = stringResource(R.string.content_description_message_icon)
+
+    val context = LocalContext.current
+    val duration = Toast.LENGTH_SHORT
 
     Box(
         modifier = Modifier.background(MaterialTheme.colorScheme.background)
@@ -45,22 +50,24 @@ fun CloneToolBar() {
                 style = MaterialTheme.typography.headlineLarge
             )
 
-            Image(
-                painter = painterResource(id = R.drawable.ic_notification),
+            IconBut(
+                img = imgNotification,
+                desc = imgNotificationDesc,
                 modifier = Modifier
                     .size(32.dp)
                     .padding(end = spacingMedium),
-                contentDescription = stringResource(R.string.content_description_notification_icon),
-                colorFilter = ColorFilter.tint(iconsColor)
+                onClick = {
+                    Toast.makeText(context, "oi", duration).show()
+                }
             )
 
-            Image(
-                painter = painterResource(id = R.drawable.messenger),
+            IconBut(
+                img = imgDM,
+                desc = imgDMDesc,
                 modifier = Modifier
                     .size(32.dp)
                     .padding(start = spacingMedium),
-                contentDescription = stringResource(R.string.content_description_message_icon),
-                colorFilter = ColorFilter.tint(iconsColor)
+                onClick = {}
             )
         }
     }
