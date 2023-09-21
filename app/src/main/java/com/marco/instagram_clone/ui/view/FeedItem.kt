@@ -2,7 +2,6 @@ package com.marco.instagram_clone.ui.view
 
 import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.scaleIn
@@ -62,7 +61,6 @@ import com.marco.instagram_clone.ui.theme.spacingMedium
 import com.marco.instagram_clone.ui.theme.spacingSmall
 import kotlinx.coroutines.delay
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun FeedItem(feed: Feed) {
 
