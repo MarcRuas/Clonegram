@@ -34,15 +34,20 @@ fun IconTog(
     imgIconTogFalse: Int,
     descTog: String,
     modifier: Modifier,
-    tint: Color
+    tint: Color,
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit
 ) {
-    var checked by rememberSaveable {
-        mutableStateOf(false)
+    var isChecked by rememberSaveable {
+        mutableStateOf(checked)
     }
 
     IconToggleButton(
         checked = checked,
-        onCheckedChange = { checked = it },
+        onCheckedChange = { newChanged ->
+            isChecked = newChanged
+            onCheckedChange(newChanged)
+        },
         modifier = modifier
     )
     {

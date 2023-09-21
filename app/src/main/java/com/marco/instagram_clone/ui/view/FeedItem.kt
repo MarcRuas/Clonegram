@@ -1,8 +1,18 @@
 package com.marco.instagram_clone.ui.view
 
 import android.widget.Toast
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,13 +28,20 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Gray
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -43,7 +60,9 @@ import com.marco.instagram_clone.ui.theme.screenSkeleton
 import com.marco.instagram_clone.ui.theme.spacingLarge
 import com.marco.instagram_clone.ui.theme.spacingMedium
 import com.marco.instagram_clone.ui.theme.spacingSmall
+import kotlinx.coroutines.delay
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun FeedItem(feed: Feed) {
 
@@ -52,7 +71,7 @@ fun FeedItem(feed: Feed) {
     val messageIcon = R.drawable.ic_share
     val commentIcon = R.drawable.ic_comment
     val bookmarkIcon = R.drawable.ic_bookmark
-
+    val likedImage = R.drawable.ic_liked
     //Desc
     val userAvatarContent = stringResource(R.string.content_description_feed_avatar)
     val feedImageContentDesc = stringResource(R.string.content_description_feed_image)
@@ -64,6 +83,28 @@ fun FeedItem(feed: Feed) {
     //Mensagens de toque
     val context = LocalContext.current
     val duration = Toast.LENGTH_SHORT
+
+    var checkedLike by rememberSaveable {
+        mutableStateOf(false)
+    }
+
+    var isAnimationVisible by rememberSaveable { mutableStateOf(false) }
+
+    LaunchedEffect(isAnimationVisible) {
+        if (isAnimationVisible) {
+            delay(2000)
+            isAnimationVisible = false
+        }
+    }
+
+    if (isAnimationVisible) {
+        checkedLike = true
+    }
+
+
+    var checkedMessenge by rememberSaveable {
+        mutableStateOf(false)
+    }
 
     Column(
         modifier = Modifier.background(MaterialTheme.colorScheme.background)
@@ -81,7 +122,12 @@ fun FeedItem(feed: Feed) {
                     .size(36.dp)
                     .fillMaxSize()
                     .clip(CircleShape)
-                    .border(2.dp, StoryCircleColor, CircleShape),
+                    .border(2.dp, StoryCircleColor, CircleShape)
+                    .clickable {
+                        Toast
+                            .makeText(context, "like", duration)
+                            .show()
+                    },
                 contentScale = ContentScale.Crop,
                 placeholder = screenSkeleton
             )
@@ -110,16 +156,42 @@ fun FeedItem(feed: Feed) {
             }
         }
 
-        AsyncImage(
-            model = feed.imageUrl,
-            contentDescription = feedImageContentDesc,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = spacingLarge)
-                .height(256.dp),
-            contentScale = ContentScale.Crop,
-            placeholder = screenSkeleton
-        )
+        Box(
+            modifier = Modifier.pointerInput(Unit) {
+                detectTapGestures(
+                    onDoubleTap = {
+                        isAnimationVisible = true
+                    }
+                )
+            }, contentAlignment = Alignment.Center
+        ) {
+            AsyncImage(
+                model = feed.imageUrl,
+                contentDescription = feedImageContentDesc,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = spacingLarge)
+                    .height(256.dp),
+                contentScale = ContentScale.Crop,
+                placeholder = screenSkeleton
+            )
+
+            this@Column.AnimatedVisibility(
+                visible = isAnimationVisible,
+                enter = scaleIn(
+                    spring(
+                        dampingRatio = Spring.DampingRatioMediumBouncy,
+                        stiffness = Spring.StiffnessLow
+                    )
+                ), exit = scaleOut()
+            ) {
+                Image(
+                    painter = painterResource(id = likedImage),
+                    contentDescription = "Animação de curtida",
+                    modifier = Modifier.size(100.dp)
+                )
+            }
+        }
 
         Row(
             modifier = Modifier
@@ -135,7 +207,11 @@ fun FeedItem(feed: Feed) {
                 modifier = Modifier
                     .size(40.dp)
                     .padding(end = spacingLarge),
-                tint = Color.Red
+                tint = Color.Red,
+                checked = checkedLike,
+                onCheckedChange = { newChanged ->
+                    checkedLike = newChanged
+                }
             )
 
             IconBut(
@@ -167,7 +243,11 @@ fun FeedItem(feed: Feed) {
                     .padding(end = spacingLarge)
                     .weight(1f)
                     .wrapContentWidth(align = Alignment.End),
-                tint = MaterialTheme.colorScheme.onBackground
+                tint = MaterialTheme.colorScheme.onBackground,
+                checked = checkedMessenge,
+                onCheckedChange = { newChanged ->
+                    checkedMessenge = newChanged
+                }
             )
 
         }
