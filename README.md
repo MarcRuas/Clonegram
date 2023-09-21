@@ -2,5 +2,5 @@
 Projeto clone do Instagram com Jetpack Compose
 
 # Vídeo
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=BBvJZKwnVB4" frameborder="0" allowfullscreen></iframe>
+file:///C:/Users/user/Screen_recording_20230921_121347.mp4
 
