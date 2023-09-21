@@ -48,6 +48,8 @@ val feedList: MutableList<Feed> = mutableListOf(
         userAvatar = "https://projectzomboid.com/blog/content/uploads/2022/10/mapspiffoblog-centred-trans.png",
         imageUrl ="https://images5.alphacoders.com/627/627910.jpg",
         description = "Passando dificuldade :)",
+        contLikes = (100..10000).random(),
+        comentLikes = (100..10000).random(),
         postedAgo = "Há 1 dia"
         ),
 
@@ -56,7 +58,9 @@ val feedList: MutableList<Feed> = mutableListOf(
         localName = "Georgia",
         userAvatar = "https://ovicio.com.br/wp-content/uploads/2019/05/20190513-the-walking-dead-comics-rick-grimes-1170814.jpeg",
         imageUrl ="https://img.r7.com/images/the-walking-dead-18072020173303685?dimensions=660x360&&&resize=660x360&crop=781x426+0+306",
-        description = "Passando dificuldade :)",
+        description = "\"The Walking Dead\" (TWD) é uma popular série de televisão e franquia de mídia que se originou a partir dos quadrinhos homônimos criados por Robert Kirkman, Tony Moore e Charlie Adlard. A série é ambientada em um mundo pós-apocalíptico dominado por zumbis, mas o foco principal não está apenas na ameaça dos mortos-vivos, mas também nas interações e sobrevivência dos sobreviventes humanos.",
+        contLikes = (100..10000).random(),
+        comentLikes = (100..10000).random(),
         postedAgo = "Há 1 dia"
     ),
 
@@ -66,6 +70,8 @@ val feedList: MutableList<Feed> = mutableListOf(
         userAvatar = "https://miro.medium.com/v2/resize:fit:1400/1*MCU8J5-roudxIIYt1U1J1A.jpeg",
         imageUrl ="https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/1272409/regular_1708x683_RENDER_1__2_-6e93fa7621abfe9e81524024b92dfe47.png",
         description = "Passando dificuldade :)",
+        contLikes = (100..10000).random(),
+        comentLikes = (100..10000).random(),
         postedAgo = "Há 1 dia"
     ),
 
@@ -75,6 +81,8 @@ val feedList: MutableList<Feed> = mutableListOf(
         userAvatar = "https://photos.fife.usercontent.google.com/pw/AIL4fc-p2QKsXdL6c-pJnVk2Imu1Wi2kT_sLvaDruAev2QRWVVu9wLKKctosnw=w758-h845-s-no?authuser=0",
         imageUrl ="https://images5.alphacoders.com/627/627910.jpg",
         description = "Passando dificuldade :)",
+        contLikes = (100..10000).random(),
+        comentLikes = (100..10000).random(),
         postedAgo = "Há 1 dia"
     ),
 
@@ -84,6 +92,8 @@ val feedList: MutableList<Feed> = mutableListOf(
         userAvatar = "https://projectzomboid.com/blog/content/uploads/2022/10/mapspiffoblog-centred-trans.png",
         imageUrl ="https://images5.alphacoders.com/627/627910.jpg",
         description = "Passando dificuldade :)",
+        contLikes = (100..10000).random(),
+        comentLikes = (100..10000).random(),
         postedAgo = "Há 1 dia"
     )
 )

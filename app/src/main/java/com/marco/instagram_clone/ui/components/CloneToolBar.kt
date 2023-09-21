@@ -57,7 +57,7 @@ fun CloneToolBar() {
                     .size(32.dp)
                     .padding(end = spacingMedium),
                 onClick = {
-                    Toast.makeText(context, "oi", duration).show()
+                    Toast.makeText(context, "Notificação!", duration).show()
                 }
             )
 
@@ -67,7 +67,9 @@ fun CloneToolBar() {
                 modifier = Modifier
                     .size(32.dp)
                     .padding(start = spacingMedium),
-                onClick = {}
+                onClick = {
+                    Toast.makeText(context, "DM!", duration).show()
+                }
             )
         }
     }

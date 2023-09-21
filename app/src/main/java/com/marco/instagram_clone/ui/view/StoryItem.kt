@@ -25,7 +25,6 @@ import com.marco.instagram_clone.ui.theme.StoryCircleColor
 import com.marco.instagram_clone.ui.theme.screenSkeleton
 import com.marco.instagram_clone.ui.theme.spacingSmall
 
-
 @Composable
 fun StoryItem(story: Story) {
 

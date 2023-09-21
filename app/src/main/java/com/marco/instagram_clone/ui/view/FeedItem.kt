@@ -1,7 +1,8 @@
 package com.marco.instagram_clone.ui.view
 
-import androidx.compose.foundation.Image
+import android.widget.Toast
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,22 +12,33 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.marco.instagram_clone.R
 import com.marco.instagram_clone.data.model.Feed
+import com.marco.instagram_clone.ui.components.IconBut
+import com.marco.instagram_clone.ui.components.IconTog
+import com.marco.instagram_clone.ui.theme.StoryCircleColor
 import com.marco.instagram_clone.ui.theme.screenSkeleton
 import com.marco.instagram_clone.ui.theme.spacingLarge
 import com.marco.instagram_clone.ui.theme.spacingMedium
@@ -35,11 +47,13 @@ import com.marco.instagram_clone.ui.theme.spacingSmall
 @Composable
 fun FeedItem(feed: Feed) {
 
+    //Ícones
     val likeIcon = R.drawable.ic_notification
     val messageIcon = R.drawable.ic_share
     val commentIcon = R.drawable.ic_comment
     val bookmarkIcon = R.drawable.ic_bookmark
 
+    //Desc
     val userAvatarContent = stringResource(R.string.content_description_feed_avatar)
     val feedImageContentDesc = stringResource(R.string.content_description_feed_image)
     val likeContestDesc = stringResource(R.string.button_like_description)
@@ -47,6 +61,9 @@ fun FeedItem(feed: Feed) {
     val commentContestDesc = stringResource(R.string.button_content_description)
     val bookmarkContestDesc = stringResource(R.string.button_bookmark_description)
 
+    //Mensagens de toque
+    val context = LocalContext.current
+    val duration = Toast.LENGTH_SHORT
 
     Column(
         modifier = Modifier.background(MaterialTheme.colorScheme.background)
@@ -63,7 +80,8 @@ fun FeedItem(feed: Feed) {
                 modifier = Modifier
                     .size(36.dp)
                     .fillMaxSize()
-                    .clip(CircleShape),
+                    .clip(CircleShape)
+                    .border(2.dp, StoryCircleColor, CircleShape),
                 contentScale = ContentScale.Crop,
                 placeholder = screenSkeleton
             )
@@ -110,36 +128,72 @@ fun FeedItem(feed: Feed) {
                 .padding(start = spacingMedium, top = spacingLarge)
         ) {
 
-            Image(
-                painter = painterResource(id = likeIcon),
-                contentDescription = likeContestDesc,
+            IconTog(
+                imgIconTogTrue = Icons.Filled.Favorite,
+                imgIconTogFalse = likeIcon,
+                descTog = likeContestDesc,
+                modifier = Modifier
+                    .size(40.dp)
+                    .padding(end = spacingLarge),
+                tint = Color.Red
+            )
+
+            IconBut(
+                img = messageIcon,
+                desc = messageContestDesc,
                 modifier = Modifier
                     .size(40.dp)
                     .padding(end = spacingLarge)
-            )
-            Image(
-                painter = painterResource(id = messageIcon),
-                contentDescription = messageContestDesc,
+            ) {
+                Toast.makeText(context, "Compartilhar!", duration).show()
+            }
+
+            IconBut(
+                img = commentIcon,
+                desc = commentContestDesc,
                 modifier = Modifier
                     .size(40.dp)
                     .padding(end = spacingLarge)
-            )
-            Image(
-                painter = painterResource(id = commentIcon),
-                contentDescription = commentContestDesc,
-                modifier = Modifier
-                    .size(40.dp)
-                    .padding(end = spacingLarge)
-            )
-            Image(
-                painter = painterResource(id = bookmarkIcon),
-                contentDescription = bookmarkContestDesc,
+            ) {
+                Toast.makeText(context, "Comentar!", duration).show()
+            }
+
+            IconTog(
+                imgIconTogTrue = Icons.Filled.Bookmark,
+                imgIconTogFalse = bookmarkIcon,
+                descTog = bookmarkContestDesc,
                 modifier = Modifier
                     .size(40.dp)
                     .padding(end = spacingLarge)
                     .weight(1f)
-                    .wrapContentWidth(align = Alignment.End)
+                    .wrapContentWidth(align = Alignment.End),
+                tint = MaterialTheme.colorScheme.onBackground
             )
+
+        }
+
+        Column(
+            modifier = Modifier
+                .padding(horizontal = 8.dp)
+                .padding(top = spacingMedium)
+        ) {
+
+            val description = buildAnnotatedString {
+                withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                    append(feed.userNickname)
+                }
+                append(" ")
+                append(feed.description)
+            }
+
+            Text(text = "${feed.contLikes} curtidas")
+            Text(
+                text = description,
+                overflow = TextOverflow.Ellipsis,
+                textAlign = TextAlign.Start
+            )
+            Text(text = "Ver todos os ${feed.comentLikes} comentários", color = Gray)
+            Text(text = feed.postedAgo, maxLines = 1, color = Gray, textAlign = TextAlign.Start)
 
         }
     }

@@ -6,5 +6,7 @@ class Feed (
     val userAvatar: String,
     val imageUrl: String,
     val description: String,
-    val postedAgo: String
+    val postedAgo: String,
+    val contLikes: Int,
+    val comentLikes: Int
 )

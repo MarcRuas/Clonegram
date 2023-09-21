@@ -1,5 +1,6 @@
 package com.marco.instagram_clone.ui.theme
 
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 
@@ -14,7 +15,16 @@ val Pink40 = Color(0xFF7D5260)
 //Cores
 val Black = Color(0xFF000000)
 val White = Color(0xFFFFFFFF)
-val StoryCircleColor = Color(0xFFFF6347)
+val StoryCircleColor = Brush.horizontalGradient(
+    listOf(
+        Color(0xffff6f00),
+        Color(0xffffeb35),
+        Color(0xffff6f00),
+        Color(0xffff2b99),
+        Color(0xffff2bd1),
+        Color(0xffff2bd1),
+    )
+)
 val DividerColor = Color(0xFFC9C9C9)
 val DarkDividerColor = Color(0xFF343434)
 val screenSkeleton = ColorPainter(Color.Gray)

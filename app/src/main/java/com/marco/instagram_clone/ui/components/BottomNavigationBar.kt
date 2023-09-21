@@ -15,6 +15,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -72,7 +73,8 @@ fun RowScope.NavigationIcon(@DrawableRes icon: Int, contentDesc: String, onClick
             modifier = Modifier
                 .size(32.dp)
                 .clickable { onClick() },
-            contentDescription = contentDesc
+            contentDescription = contentDesc,
+            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onBackground)
         )
     }
 }
