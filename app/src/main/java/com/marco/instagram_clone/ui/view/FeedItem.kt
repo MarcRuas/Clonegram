@@ -24,6 +24,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -123,14 +126,16 @@ fun FeedItem(feed: Feed) {
                     .border(2.dp, StoryCircleColor, CircleShape)
                     .clickable {
                         Toast
-                            .makeText(context, "like", duration)
+                            .makeText(context, "Abrindo story...", duration)
                             .show()
                     },
                 contentScale = ContentScale.Crop,
                 placeholder = screenSkeleton
             )
 
-            Column {
+            Column(
+                modifier = Modifier.weight(1f)
+            ){
                 Text(
                     text = feed.userNickname,
                     modifier = Modifier
@@ -152,6 +157,20 @@ fun FeedItem(feed: Feed) {
                     textAlign = TextAlign.Start
                 )
             }
+
+            IconButton(onClick = {
+                                 Toast.makeText(context, "Abrindo Menu...", duration).show()
+            },
+                modifier = Modifier.size(36.dp)) {
+                Icon(
+                    imageVector = Icons.Filled.MoreVert,
+                    contentDescription = "Menu",
+                    modifier = Modifier
+                        .wrapContentWidth(Alignment.End),
+                    tint = Gray
+                )
+            }
+
         }
 
         Box(
@@ -168,7 +187,7 @@ fun FeedItem(feed: Feed) {
                 contentDescription = feedImageContentDesc,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = spacingLarge)
+                    .padding(top = spacingMedium)
                     .height(256.dp),
                 contentScale = ContentScale.Crop,
                 placeholder = screenSkeleton

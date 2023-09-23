@@ -1,7 +1,9 @@
 package com.marco.instagram_clone.ui.view
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -14,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -31,6 +34,9 @@ fun StoryItem(story: Story) {
     val avatarContentDesc =
         stringResource(id = R.string.story_content_description, story.userNickName)
 
+    val context = LocalContext.current
+    val duration = Toast.LENGTH_SHORT
+
     Column(
         modifier = Modifier
             .padding(spacingSmall)
@@ -45,7 +51,10 @@ fun StoryItem(story: Story) {
                 .align(Alignment.CenterHorizontally)
                 .fillMaxSize()
                 .clip(CircleShape)
-                .border(2.dp, StoryCircleColor, CircleShape),
+                .border(2.dp, StoryCircleColor, CircleShape)
+                .clickable {
+                           Toast.makeText(context, "Abrindo story...", duration).show()
+                },
             contentScale = ContentScale.Crop,
             placeholder = screenSkeleton
         )
