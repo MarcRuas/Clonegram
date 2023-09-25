@@ -1,10 +1,10 @@
 package com.marco.instagram_clone.ui.view
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Divider
@@ -23,11 +23,11 @@ import com.marco.instagram_clone.ui.components.BottomNavigationBar
 import com.marco.instagram_clone.ui.components.CloneToolBar
 import com.marco.instagram_clone.ui.theme.InstagramCloneTheme
 import com.marco.instagram_clone.ui.theme.spacingMedium
-import com.marco.instagram_clone.ui.theme.spacingSmall
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen() {
+
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
@@ -38,15 +38,20 @@ fun HomeScreen() {
         bottomBar = {
             BottomNavigationBar()
         }
-    ){paddingValues ->
-        Column(
+    ) { paddingValues ->
+        LazyColumn(
             modifier = Modifier.padding(paddingValues)
-        ){
-            StoryList(stories = storyList)
+        ) {
 
-            Divider(color = MaterialTheme.colorScheme.onSurface, thickness = 0.2.dp)
+            item {
+                StoryList(stories = storyList)
+            }
 
-            FeedList(feeds = feedList)
+            item {
+                Divider(color = MaterialTheme.colorScheme.onSurface, thickness = 0.2.dp)
+            }
+
+            feedList(feedList = feedList)
 
         }
 
@@ -64,14 +69,9 @@ fun StoryList(stories: List<Story>) {
     }
 }
 
-@Composable
-fun FeedList(feeds: List<Feed>) {
-    LazyColumn(
-        modifier = Modifier.padding(top = spacingSmall)
-    ){
-         itemsIndexed(feeds){_, item ->
-             FeedItem(feed = item)
-         }
+fun LazyListScope.feedList(feedList: List<Feed>){
+    itemsIndexed(feedList){_, item ->
+        FeedItem(feed = item)
     }
 }
 

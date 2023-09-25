@@ -22,6 +22,7 @@ import com.marco.instagram_clone.ui.theme.spacingLarge
 import com.marco.instagram_clone.ui.theme.spacingMedium
 
 
+
 @Composable
 fun CloneToolBar() {
 
@@ -34,6 +35,7 @@ fun CloneToolBar() {
 
     val context = LocalContext.current
     val duration = Toast.LENGTH_SHORT
+
 
     Box(
         modifier = Modifier.background(MaterialTheme.colorScheme.background)
@@ -74,6 +76,7 @@ fun CloneToolBar() {
             )
         }
     }
+
 }
 
 @Preview(showBackground = true)

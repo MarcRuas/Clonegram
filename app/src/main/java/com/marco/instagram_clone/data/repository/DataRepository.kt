@@ -73,27 +73,5 @@ val feedList: MutableList<Feed> = mutableListOf(
         contLikes = (100..10000).random(),
         comentLikes = (100..10000).random(),
         postedAgo = "Há 1 dia"
-    ),
-
-    Feed(
-        userNickname = "Zombie",
-        localName = "Rosewood",
-        userAvatar = "https://photos.fife.usercontent.google.com/pw/AIL4fc-p2QKsXdL6c-pJnVk2Imu1Wi2kT_sLvaDruAev2QRWVVu9wLKKctosnw=w758-h845-s-no?authuser=0",
-        imageUrl ="https://images5.alphacoders.com/627/627910.jpg",
-        description = "Passando dificuldade :)",
-        contLikes = (100..10000).random(),
-        comentLikes = (100..10000).random(),
-        postedAgo = "Há 1 dia"
-    ),
-
-    Feed(
-        userNickname = "Zombie",
-        localName = "Rosewood",
-        userAvatar = "https://projectzomboid.com/blog/content/uploads/2022/10/mapspiffoblog-centred-trans.png",
-        imageUrl ="https://images5.alphacoders.com/627/627910.jpg",
-        description = "Passando dificuldade :)",
-        contLikes = (100..10000).random(),
-        comentLikes = (100..10000).random(),
-        postedAgo = "Há 1 dia"
     )
 )
