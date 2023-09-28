@@ -69,8 +69,8 @@ fun StoryList(stories: List<Story>) {
     }
 }
 
-fun LazyListScope.feedList(feedList: List<Feed>){
-    itemsIndexed(feedList){_, item ->
+fun LazyListScope.feedList(feedList: List<Feed>) {
+    itemsIndexed(feedList) { _, item ->
         FeedItem(feed = item)
     }
 }

@@ -22,7 +22,6 @@ import com.marco.instagram_clone.ui.theme.spacingLarge
 import com.marco.instagram_clone.ui.theme.spacingMedium
 
 
-
 @Composable
 fun CloneToolBar() {
 
