@@ -74,9 +74,6 @@ dependencies {
     //Coil
     implementation("io.coil-kt:coil-compose:2.4.0")
 
-    //Icon-Extend
-    implementation("androidx.compose.material:material-icons-extended")
-
     //Splash
     implementation("androidx.core:core-splashscreen:1.0.1")
 }

@@ -1,86 +1,76 @@
 package com.marco.instagram_clone.ui.components
 
 import android.widget.Toast
-import androidx.annotation.DrawableRes
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.marco.instagram_clone.R
+import com.marco.instagram_clone.ui.theme.Black
+import com.marco.instagram_clone.ui.theme.screenSkeleton
 
 @Composable
 fun BottomNavigationBar() {
 
-    val bottomNavigationIcon = R.drawable.messenger
-    val iconContentDesc = "Adicione uma descrição de conteúdo aqui."
-
     val context = LocalContext.current
     val duration = Toast.LENGTH_SHORT
 
-    Box(
-        modifier = Modifier.background(MaterialTheme.colorScheme.background)
-    ) {
-        Row(
-            modifier = Modifier.height(56.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            NavigationIcon(icon = bottomNavigationIcon, contentDesc = iconContentDesc) {
-                Toast.makeText(context, "Você clicou no item 1!", duration).show()
-            }
-
-            NavigationIcon(icon = bottomNavigationIcon, contentDesc = iconContentDesc) {
-                Toast.makeText(context, "Você clicou no item 2!", duration).show()
-            }
-
-            NavigationIcon(icon = bottomNavigationIcon, contentDesc = iconContentDesc) {
-                Toast.makeText(context, "Você clicou no item 3!", duration).show()
-            }
-
-            NavigationIcon(icon = bottomNavigationIcon, contentDesc = iconContentDesc) {
-                Toast.makeText(context, "Você clicou no item 4!", duration).show()
-            }
-
-            NavigationIcon(icon = bottomNavigationIcon, contentDesc = iconContentDesc) {
-                Toast.makeText(context, "Você clicou no item 5!", duration).show()
-            }
-        }
-    }
-}
-
-@Composable
-fun RowScope.NavigationIcon(@DrawableRes icon: Int, contentDesc: String, onClick: () -> Unit) {
-    Box(
+    Row(
         modifier = Modifier
-            .weight(1f)
-            .wrapContentWidth(align = Alignment.CenterHorizontally)
+            .fillMaxWidth()
+            .padding(vertical = 10.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceAround
     ) {
-        Image(
-            painter = painterResource(id = icon),
+
+        IconBut(img = R.drawable.ic_home, desc = "", modifier = Modifier.size(22.dp)) {
+            Toast
+                .makeText(context, "item 1", duration)
+                .show()
+        }
+        IconBut(img = R.drawable.ic_search, desc = "", modifier = Modifier.size(22.dp)) {
+            Toast
+                .makeText(context, "item 2", duration)
+                .show()
+        }
+        IconBut(img = R.drawable.ic_add, desc = "", modifier = Modifier.size(22.dp)) {
+            Toast
+                .makeText(context, "item 5", duration)
+                .show()
+        }
+        IconBut(img = R.drawable.ic_ig, desc = "", modifier = Modifier.size(22.dp)) {
+            Toast
+                .makeText(context, "item 4", duration)
+                .show()
+        }
+        AsyncImage(
+            model = "https://projectzomboid.com/blog/content/uploads/2022/10/mapspiffoblog-centred-trans.png",
+            contentDescription = null,
             modifier = Modifier
-                .size(32.dp)
-                .clickable { onClick() },
-            contentDescription = contentDesc,
-            colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onBackground)
+                .size(30.dp)
+                .fillMaxSize()
+                .clip(CircleShape)
+                .border(2.dp, Black, CircleShape)
+                .clickable {
+                    Toast
+                        .makeText(context, "Abrindo perfil...", duration)
+                        .show()
+                },
+            contentScale = ContentScale.Crop,
+            placeholder = screenSkeleton
         )
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun BottomNavigationBarPreview() {
-    BottomNavigationBar()
 }

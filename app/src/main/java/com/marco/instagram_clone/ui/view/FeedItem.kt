@@ -22,7 +22,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Icon
@@ -40,11 +39,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Gray
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -73,6 +74,7 @@ fun FeedItem(feed: Feed) {
     val commentIcon = R.drawable.ic_comment
     val bookmarkIcon = R.drawable.ic_bookmark
     val likedImage = R.drawable.ic_liked
+    val book = ImageVector.vectorResource(id = R.drawable.ic_booktrue)
     //Desc
     val userAvatarContent = stringResource(R.string.content_description_feed_avatar)
     val feedImageContentDesc = stringResource(R.string.content_description_feed_image)
@@ -135,7 +137,7 @@ fun FeedItem(feed: Feed) {
 
             Column(
                 modifier = Modifier.weight(1f)
-            ){
+            ) {
                 Text(
                     text = feed.userNickname,
                     modifier = Modifier
@@ -158,10 +160,12 @@ fun FeedItem(feed: Feed) {
                 )
             }
 
-            IconButton(onClick = {
-                                 Toast.makeText(context, "Abrindo Menu...", duration).show()
-            },
-                modifier = Modifier.size(36.dp)) {
+            IconButton(
+                onClick = {
+                    Toast.makeText(context, "Abrindo Menu...", duration).show()
+                },
+                modifier = Modifier.size(36.dp)
+            ) {
                 Icon(
                     imageVector = Icons.Filled.MoreVert,
                     contentDescription = "Menu",
@@ -252,7 +256,7 @@ fun FeedItem(feed: Feed) {
             }
 
             IconTog(
-                imgIconTogTrue = Icons.Filled.Bookmark,
+                imgIconTogTrue = book,
                 imgIconTogFalse = bookmarkIcon,
                 descTog = bookmarkContestDesc,
                 modifier = Modifier
