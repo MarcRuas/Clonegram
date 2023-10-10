@@ -12,4 +12,6 @@
     <string name="button_bookmark_content_description">Botão para marcar a postagem.</string>
     <string name="button_message_toast_text">Clicou para enviar o post.</string>
     <string name="button_comment_toast_text">Clicou para comentar o post.</string>
+    <string name="notification_content_description">Notificação!</string>
+    <string name="message_content_description">Mensagens (DM)!</string>
 </resources>

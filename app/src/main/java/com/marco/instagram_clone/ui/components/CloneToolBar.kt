@@ -32,6 +32,9 @@ fun CloneToolBar() {
     val imgNotificationDesc = stringResource(R.string.content_description_notification_icon)
     val imgDMDesc = stringResource(R.string.content_description_message_icon)
 
+    val notificationToast = stringResource(R.string.notification_content_description)
+    val messageToast = stringResource(R.string.message_content_description)
+
     val context = LocalContext.current
     val duration = Toast.LENGTH_SHORT
 
@@ -59,7 +62,7 @@ fun CloneToolBar() {
                     .size(32.dp)
                     .padding(end = spacingMedium),
                 onClick = {
-                    Toast.makeText(context, "Notificação!", duration).show()
+                    Toast.makeText(context, notificationToast, duration).show()
                 }
             )
 
@@ -70,7 +73,7 @@ fun CloneToolBar() {
                     .size(32.dp)
                     .padding(start = spacingMedium),
                 onClick = {
-                    Toast.makeText(context, "DM!", duration).show()
+                    Toast.makeText(context, messageToast, duration).show()
                 }
             )
         }

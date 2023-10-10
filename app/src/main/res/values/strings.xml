@@ -11,4 +11,6 @@
     <string name="button_bookmark_content_description">Bookmark button for the post.</string>
     <string name="button_message_toast_text">Clicked send the post.</string>
     <string name="button_comment_toast_text">Clicked to comment on the post.</string>
+    <string name="notification_content_description">Notification!</string>
+    <string name="message_content_description">Messages (DM)!</string>
 </resources>
