@@ -36,22 +36,22 @@ fun BottomNavigationBar() {
         horizontalArrangement = Arrangement.SpaceAround
     ) {
 
-        IconBut(img = R.drawable.ic_home, desc = "", modifier = Modifier.size(22.dp)) {
+        IconBut(img = R.drawable.ic_home, desc = "", modifier = Modifier.size(26.dp)) {
             Toast
                 .makeText(context, "item 1", duration)
                 .show()
         }
-        IconBut(img = R.drawable.ic_search, desc = "", modifier = Modifier.size(22.dp)) {
+        IconBut(img = R.drawable.ic_search, desc = "", modifier = Modifier.size(26.dp)) {
             Toast
                 .makeText(context, "item 2", duration)
                 .show()
         }
-        IconBut(img = R.drawable.ic_add, desc = "", modifier = Modifier.size(22.dp)) {
+        IconBut(img = R.drawable.ic_add, desc = "", modifier = Modifier.size(26.dp)) {
             Toast
                 .makeText(context, "item 5", duration)
                 .show()
         }
-        IconBut(img = R.drawable.ic_ig, desc = "", modifier = Modifier.size(22.dp)) {
+        IconBut(img = R.drawable.ic_ig, desc = "", modifier = Modifier.size(26.dp)) {
             Toast
                 .makeText(context, "item 4", duration)
                 .show()

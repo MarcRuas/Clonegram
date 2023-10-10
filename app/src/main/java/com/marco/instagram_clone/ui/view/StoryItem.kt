@@ -32,7 +32,7 @@ import com.marco.instagram_clone.ui.theme.spacingSmall
 fun StoryItem(story: Story) {
 
     val avatarContentDesc =
-        stringResource(id = R.string.story_content_description, story.userNickName)
+        stringResource(id = R.string.content_description_story, story.userNickName)
 
     val context = LocalContext.current
     val duration = Toast.LENGTH_SHORT

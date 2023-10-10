@@ -78,10 +78,12 @@ fun FeedItem(feed: Feed) {
     //Desc
     val userAvatarContent = stringResource(R.string.content_description_feed_avatar)
     val feedImageContentDesc = stringResource(R.string.content_description_feed_image)
-    val likeContestDesc = stringResource(R.string.button_like_description)
-    val messageContestDesc = stringResource(R.string.button_message_description)
-    val commentContestDesc = stringResource(R.string.button_content_description)
-    val bookmarkContestDesc = stringResource(R.string.button_bookmark_description)
+    val likeContestDesc = stringResource(R.string.button_like_content_description)
+    val messageContestDesc = stringResource(R.string.button_message_content_description)
+    val commentContestDesc = stringResource(R.string.button_comment_content_description)
+    val bookmarkContestDesc = stringResource(R.string.button_bookmark_content_description)
+    val messageToastText = stringResource(id = R.string.button_message_toast_text)
+    val commentToastText = stringResource(id = R.string.button_comment_toast_text)
 
     //Mensagens de toque
     val context = LocalContext.current
@@ -242,7 +244,7 @@ fun FeedItem(feed: Feed) {
                     .size(40.dp)
                     .padding(end = spacingLarge)
             ) {
-                Toast.makeText(context, "Compartilhar!", duration).show()
+                Toast.makeText(context, messageToastText, duration).show()
             }
 
             IconBut(
@@ -252,7 +254,7 @@ fun FeedItem(feed: Feed) {
                     .size(40.dp)
                     .padding(end = spacingLarge)
             ) {
-                Toast.makeText(context, "Comentar!", duration).show()
+                Toast.makeText(context, commentToastText, duration).show()
             }
 
             IconTog(

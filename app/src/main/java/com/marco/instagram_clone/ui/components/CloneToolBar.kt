@@ -25,7 +25,7 @@ import com.marco.instagram_clone.ui.theme.spacingMedium
 @Composable
 fun CloneToolBar() {
 
-    val instagramLabel = stringResource(id = R.string.titulo)
+    val instagramLabel = stringResource(id = R.string.app_name)
 
     val imgNotification = R.drawable.ic_notification
     val imgDM = R.drawable.messenger
